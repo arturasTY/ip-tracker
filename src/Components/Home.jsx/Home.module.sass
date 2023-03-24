@@ -1,0 +1,127 @@
+.header
+    background-color: #1d2228
+    // background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%)
+    min-height: 35vh
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    position: relative
+    padding: 0 10px
+    color: white
+    text-align: center
+    &::before, &::after
+        content: ''
+        display: block
+        background-position: center left
+        background-repeat: no-repeat
+        background-size: 100% auto
+        mix-blend-mode: plus-lighter
+        width: 220px
+        height: 100%
+        position: absolute
+    &::before
+        background-image: url(../../assets/shadow-bg_left.png)
+        left: 0
+    &::after
+        background-image: url(../../assets/shadow-bg_right.png)
+        right: 0
+        top: -85px
+    &__block
+        width: 500px
+        max-width: 100%
+        margin: 50px
+    &__img
+        img
+            width: 400px
+            display: block
+            position: absolute
+            right: 0
+            bottom: 0
+    &__form
+        position: relative
+    &__inputBlock
+        display: flex
+        margin-top: 20px
+        position: relative
+        z-index: 20
+    &__input
+        border: none
+        outline: none
+        width: 100%
+        padding: 0 15px
+        border-radius: 8px
+        border-top-right-radius: 0
+        border-bottom-right-radius: 0
+        height: 48px
+        line-height: 48px
+        appearance: none
+        font-family: inherit
+        font-size: .95em
+        transition: all 200ms ease
+        &::placeholder
+            font-size: .95em
+        &_error
+            border-left: 6px solid #EA2027
+    &__btn
+        border: none
+        outline: none
+        background: #F58F29
+        flex-basis: 50px
+        display: flex
+        justify-content: center
+        align-items: center
+        padding: 0 10px
+        border-top-right-radius: 8px
+        border-bottom-right-radius: 8px
+        cursor: pointer
+        transition: background .3s ease
+        &:hover
+            background: darken(#F58F29, 10%)
+    &__formError
+        position: absolute
+        top: 54px
+        left: 15px
+        font-size: .75em
+        color: #EA2027
+        font-weight: 700
+    &__results
+        position: relative
+        z-index: 999
+        max-width: 940px
+        width: 98%
+        min-height: 100px
+        background: white
+        color: #1d2228
+        padding: 30px
+        border-radius: 12px
+        box-shadow: 0 10px 35px 0 rgb(0, 0, 0, 0.6)
+        margin-bottom: -135px
+        &_inner
+            display: grid
+            grid-template-columns: repeat(4, 1fr)
+            @media only screen and (max-width: 700px)
+                grid-template-columns: 1fr
+                row-gap: 20px
+        &_each
+            text-align: left
+            @media only screen and (max-width: 700px)
+                text-align: center
+            &:not(:last-of-type)
+                border-right: 1px solid #eee
+                @media only screen and (max-width: 700px)
+                    border-right: 0
+            &:not(:first-of-type)
+                padding-left: 30px
+                @media only screen and (max-width: 700px)
+                    padding-left: 0
+        &_title
+            text-transform: uppercase
+            font-size: .85em
+            color: #999
+            display: block
+            margin-bottom: 5px
+        &_value
+            font-weight: 700
+            font-size: 1.25em
+            line-height: 1.25
