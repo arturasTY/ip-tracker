@@ -3,6 +3,7 @@ import styles from './Home.module.sass'
 import useFetch from '../../hooks/useFetch'
 import { MapContainer, TileLayer } from 'react-leaflet'
 import MarkerPosition from '../MarkerPosition/MarkerPosition'
+import MapSkeleton from '../skeletons/MapSkeleton'
 
 const Home = () => {
     const url = `https://geo.ipify.org/api/v2/country,city?apiKey=${import.meta.env.VITE_GEO_API_KEY}&ipAddress=`
@@ -10,7 +11,7 @@ const Home = () => {
 
     const [IPAddress, setIPAddress] = useState("")
     const [err, setErr] = useState("")
-    const {data, loading, error, setUrl} = useFetch()
+    const {data, setUrl} = useFetch()
 
     const handleInputChange = (e) => {
         setIPAddress(e.target.value)
@@ -30,7 +31,6 @@ const Home = () => {
         e.preventDefault()
         fetchSearchAddress()
     }
-
     useEffect(() => {
         setUrl(url)
     }, [])
@@ -70,7 +70,7 @@ const Home = () => {
             </div>
         </header>
         <div>
-        {data && (
+        {data ? (
             <MapContainer center={[data.location.lat, data.location.lng]} zoom={13} scrollWheelZoom={false}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -78,7 +78,7 @@ const Home = () => {
                 />
                 <MarkerPosition data={data} />
             </MapContainer>
-        )}
+        ) : (<MapSkeleton />)}
         </div>
     </div>
   )
