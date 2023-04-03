@@ -6,7 +6,7 @@ import MarkerPosition from '../MarkerPosition/MarkerPosition'
 import MapSkeleton from '../skeletons/MapSkeleton'
 
 const Home = () => {
-    const url = `https://geo.ipify.org/api/v2/country,city?apiKey=${import.meta.env.VITE_GEO_API_KEY}&ipAddress=`
+    const url = `https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.VITE_GEO_API_KEY}&ipAddress=`
     const ipRegex = /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/
 
     const [IPAddress, setIPAddress] = useState("")
