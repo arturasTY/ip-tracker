@@ -71,7 +71,7 @@ const Home = () => {
         </header>
         <div>
         {data ? (
-            <MapContainer center={[data.location.lat, data.location.lng]} zoom={13} scrollWheelZoom={false}>
+            <MapContainer center={[data?.location.lat, data?.location.lng]} zoom={13} scrollWheelZoom={false}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

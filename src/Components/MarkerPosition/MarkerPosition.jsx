@@ -10,7 +10,7 @@ const location = new Icon({
 
 const MarkerPosition = ({data}) => {
   const map = useMap()
-  const position = [data.location.lat, data.location.lng]
+  const position = [data?.location.lat, data?.location.lng]
 
   useEffect(() => {
     map.flyTo(position, 14, {
@@ -23,7 +23,7 @@ const MarkerPosition = ({data}) => {
     <div>
         <Marker position={position} icon={location}>
             <Popup>
-            {data.location.region} <br /> {data.ip}
+            {data?.location.region} <br /> {data?.ip}
             </Popup>
         </Marker>
     </div>
