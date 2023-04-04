@@ -9,8 +9,6 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    env:
-      VITE_GEO_API_KEY: ${{ secrets.VITE_GEO_API_KEY }}
       
     steps:
       - name: Checkout repo
@@ -25,6 +23,8 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: Build project
+        env:
+          VITE_GEO_API_KEY: ${{ secrets.VITE_GEO_API_KEY }}
         run: npm run build
 
       - name: Upload production-ready build files
