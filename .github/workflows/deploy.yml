@@ -24,8 +24,6 @@ jobs:
 
       - name: Build project
         run: npm run build
-        env: 
-          VITE_GEO_API_KEY: ${{ secrets.VITE_GEO_API_KEY }}
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v3
@@ -49,5 +47,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
+          VITE_GEO_API_KEY: ${{ secrets.VITE_GEO_API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
