@@ -9,7 +9,9 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-
+    env:
+      VITE_GEO_API_KEY: ${{ secrets.VITE_GEO_API_KEY }}
+      
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -49,5 +51,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          env:
-            VITE_GEO_API_KEY: ${{ secrets.VITE_GEO_API_KEY }}
+
