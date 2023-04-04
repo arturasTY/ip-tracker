@@ -9,7 +9,7 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -47,6 +47,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          VITE_GEO_API_KEY: ${{ secrets.VITE_GEO_API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          env:
+            VITE_GEO_API_KEY: ${{ secrets.VITE_GEO_API_KEY }}
